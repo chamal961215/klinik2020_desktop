@@ -8,14 +8,34 @@
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+
+  <!--
+  <-- Nav Item - Alerts --
+  <li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-bell fa-fw"></i>
+    </a>
+    <-- Dropdown - Alerts --
+    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+      <h6 class="dropdown-header">
+        Alerts Center
+      </h6>
+      <a class="dropdown-item d-flex align-items-center" href="#">
+        <div class="mr-3">
+        </div>
+        <div>
+        </div>
+      </a>
+      <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+    </div>
+  </li>
+  <div class="topbar-divider d-none d-sm-block"></div>
+  -->
+
   <!-- Nav Item - User Information -->
   <li class="nav-item dropdown no-arrow">
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <?php
-      $username='<span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$_SESSION['title'].'</span>';
-      $name='<span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$_SESSION['name'].'</span>';
-      echo "{$username}{$name}";
-      ?>
+      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mr. Abcd</span>
       <div class="icon-circle bg-primary">
             <i class="fas fa-user"></i>
       </div>
@@ -26,12 +46,14 @@
         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
         Profile
       </a>
-      <div class="dropdown-divider"></div>
+
+    <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
         Logout
       </a>
     </div>
+    
   </li>
 
 </ul>

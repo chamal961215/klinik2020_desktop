@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" style="color:white">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
   <div class="sidebar-brand-icon">
     <i class="fas fa-plus"></i>
   </div>
@@ -34,8 +34,8 @@
   <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Go To</h6>
-      <a class="collapse-item">Add patietnts</a>
-      <a class="collapse-item">View patients</a>
+      <a class="collapse-item" href="managepatient.php">Add patietnts</a>
+      <a class="collapse-item" href="get_patient_list.php">View patients</a>
     </div>
   </div>
 </li>
@@ -67,17 +67,9 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="includes/session_destroy.php?s=empty">Logout</a>
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
   </div>
-
-      <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <?php include('includes/topnavbar.php');?>
 
