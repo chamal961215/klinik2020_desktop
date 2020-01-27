@@ -4,11 +4,25 @@
                         max-height: 100%;
                         }
 </style>
+<<style>
+<!--
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.center_text {
+  text-align: center;
+  border: 3px solid green;
+}
+-->
+</style>
 
 <link rel="stylesheet" type="text/css" href="css/modal.css">
 <!-- Delete popup modal -->
 <div class="bg-modal-dark">
-	<div class="modal-content-box" style="display:flex; background-color: hsl(0, 0%, 92%)" >
+	<div class="modal-content-box" style="display:flex; background-color: hsl(0%, 0%, 92%)" >
 	<form action="querry/delete_patient.php" method="post">
 		<div style="margin:auto; align-self:center; width:80%; height:30%; position: absolute;top: 40%;left: 20%;">
 		<label style="font-size:18px; color: black">Are you sure you want to delete this account?</label></div>
@@ -120,6 +134,15 @@ $weight = $record2['Weight'];?>
                     <span class="text">Notify Patient</span>
                   </button>
 				</span></div>
+				
+   	<a href="#" id="dCard"  name="dCard"
+	class="btn btn-secondary btn-icon-split" style="margin-left:20px; margin-top:20px;background-color:Tomato;" >
+                    <span class="icon text-white-50">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                    <span class="text">Diagnosis</span>
+                  </a>
+                  
 	<!--<div>   <button type="submit"  name="edit" style="margin-top:10px; margin-left:0px ;margin-bottom:10px ;
 	 onclick="document.location.href=\'edit_patient.php?id= $id ";>Edit</button> </div>-->
 	
@@ -205,12 +228,146 @@ $weight = $record2['Weight'];?>
              
                     
            </script>  -->
+           <!-- Diagnosis Card -->
+	<div class="bg-modal-dark2">
+		<div class="modal-Dcard" style="display: flex; background-color: white">
+			<div id="diag_header" class="diag_header"  ><h1 >Diagnosis Card</h1></div>
+				<div class="content">
+    				<div class="tabcontainer">
+    					<button id="tab1">tab#1</button>
+    					<button id="tab2">tab#2</button>
+    					<button id="tab3">tab#3</button>
+    					<button id="tab4">tab#4</button>
+    					<button id="tab5">tab#5</button>
+    				</div>
+    				<div class="tabcontent tab1Content">
+    					<div class="field"><h3 style="font-style: bold">Diagnosis</h3></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">BHT</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">DOA</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">DOD</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Blood Group</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Transfered From</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Discharged To</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Diagnosis</label><input type="text" class="col-mb-3" style="height: 100px"></div>
+    				</div>
+    				<div class="tabcontent tab2Content">
+    					<div class="field"><h3 style="font-style: bold">Summary of Investigation</h3></div>
+    					<div class="field"><h4 style="font-style: bold">Haematological</h4>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Hb</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">P/s</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">WBC</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">DC</label><input type="text" class="col-mb-3"></div>
+    					<div class="field"><label class="col-mb-3 labels" style="margin-right: 20px; margin-left: 60px; margin-bottom:10px; margin-top: 10px;">Blood Pressure</label><input type="text" class="col-mb-3"></div></div>
+    				</div>
+    				<div class="tabcontent tab3Content">
+    					
+    				</div>
+    				<div class="tabcontent tab4Content">
+    					
+    				</div>
+    				<div class="tabcontent tab5Content">
+    					
+    				</div>
+				</div>
+            <div><a  class="btn btn-light btn-icon-split" id="cancel2" name="cancel2" style="bottom: 10px; position: absolute ; right: 150px;" id="delete_cancel">
+	           <span class="text">Cancel</span>
+                    <span class="icon text-gray-600">
+                      <i class="">X</i>
+                    </span>                    
+        </a>  </div>
+               <div><a  class="btn btn-light btn-icon-split diagnosissubmit" id="Submit" name="Submit" style="bottom: 10px; position: absolute ; right: 30px;" id="delete_cancel">
+	           <span class="text">Submit</span>
+                    <span class="icon text-gray-600">
+                      <i class=""></i>
+                    </span>                    
+        </a>  </div>
+		</div>
+	</div>
+<!-- Dcard end -->
 
 </div>
 <script>
     document.getElementById("delete").addEventListener("click",
         function(){
             document.querySelector('.bg-modal-dark').style.display = "flex";
+        });
+</script>
+
+
+<script>
+    document.getElementById("tab2").addEventListener("click",
+        function(){
+    		document.querySelector('.tab1content').style.display = "none";
+            document.querySelector('.tab2content').style.display = "block";
+            document.querySelector('.tab3content').style.display = "none";
+            document.querySelector('.tab4content').style.display = "none";
+            document.querySelector('.tab5content').style.display = "none";     
+            
+        });
+</script>
+
+
+<script>
+    document.getElementById("tab3").addEventListener("click",
+        function(){
+    		document.querySelector('.tab1content').style.display = "none";
+            document.querySelector('.tab3content').style.display = "block";
+            document.querySelector('.tab2content').style.display = "none";
+            document.querySelector('.tab4content').style.display = "none";
+            document.querySelector('.tab5content').style.display = "none";     
+            
+        });
+</script>
+
+<script>
+    document.getElementById("tab1").addEventListener("click",
+        function(){
+    		document.querySelector('.tab2content').style.display = "none";
+            document.querySelector('.tab1content').style.display = "block";
+            document.querySelector('.tab3content').style.display = "none";
+            document.querySelector('.tab4content').style.display = "none";
+            document.querySelector('.tab5content').style.display = "none";     
+            
+        });
+</script>
+
+<script>
+    document.getElementById("tab4").addEventListener("click",
+        function(){
+    		document.querySelector('.tab2content').style.display = "none";
+            document.querySelector('.tab4content').style.display = "block";
+            document.querySelector('.tab3content').style.display = "none";
+            document.querySelector('.tab1content').style.display = "none";
+            document.querySelector('.tab5content').style.display = "none";     
+            
+        });
+</script>
+
+<script>
+    document.getElementById("tab5").addEventListener("click",
+        function(){
+    		document.querySelector('.tab2content').style.display = "none";
+            document.querySelector('.tab5content').style.display = "block";
+            document.querySelector('.tab3content').style.display = "none";
+            document.querySelector('.tab4content').style.display = "none";
+            document.querySelector('.tab1content').style.display = "none";     
+            
+        });
+</script>
+
+<script>
+    document.getElementById("dCard").addEventListener("click",
+        function(){
+            document.querySelector('.bg-modal-dark2').style.display = "flex";
+            document.querySelector('.tab2content').style.display = "none";
+            document.querySelector('.tab1content').style.display = "block";
+        });
+</script>
+
+<script>
+    document.getElementById("cancel2").addEventListener("click",
+        function(){
+            document.querySelector('.bg-modal-dark2').style.display = "none";
         });
 </script>
 
