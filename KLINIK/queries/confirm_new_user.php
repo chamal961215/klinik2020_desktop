@@ -2,6 +2,8 @@
 
 	session_start();
 
+    $root = dirname($_SERVER['DOCUMENT_ROOT']).'/htdocs/klinik_git/klinik2020_desktop/';
+    require $root . 'host_address.php';
 
 	$connection = mysqli_connect("localhost","root","","kdb");
 
@@ -29,17 +31,17 @@
     		$update_query = "UPDATE user SET password='$hashedPwd',user_enroll_status= 'Confirmed' WHERE email='$email'";
     		mysqli_query($connection,$update_query);
             $_SESSION['success_notice'] = "Your Registration is Completed!";
-    		header('location:http://localhost/KLINIK/login.php?registration=success');
+    		header('location:'.$host_address.'KLINIK/login.php?registration=success');
     	}
         elseif($result == 0)
         {   
             $_SESSION['error'] = "Email and Enrollment Key Do Not Match!";
-            header('location:http://localhost/KLINIK/confirm_registration.php?registration=error');
+            header('location:'.$host_address.'KLINIK/confirm_registration.php?registration=error');
         }
          elseif($result == 1 && $password != $c_password)
         {   
             $_SESSION['error'] = "Passwords Do Not Match!";
-            header('location:http://localhost/KLINIK/confirm_registration.php?registration=error');
+            header('location:'.$host_address.'KLINIK/confirm_registration.php?registration=error');
         }
 	}
 

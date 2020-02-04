@@ -2,6 +2,9 @@
 
     session_start();
 
+    $root = dirname($_SERVER['DOCUMENT_ROOT']).'/htdocs/klinik_git/klinik2020_desktop/';
+    require $root . 'host_address.php';
+
 	$connection = mysqli_connect("localhost","root","","kdb");
 
 	if(isset($_POST['login_user']))
@@ -31,36 +34,36 @@
             {
                 if($user_type =='Admin' && $status =='Confirmed')
                 {
-                    header('location:http://localhost/KLINIK/admin/home.php');
+                    header('location:'.$host_address.'KLINIK/admin/home.php');
                 }
                 elseif ($user_type =='Doctor' && $status =='Confirmed') 
                 {
-                    header('location:http://localhost/KLINIK/doctor/home.php');
+                    header('location:'.$host_address.'KLINIK/doctor/home.php');
                 }
                 elseif ($user_type =='Assistant' && $status == 'Confirmed') 
                 {
-                    header('location:http://localhost/KLINIK/assistant/home.php');
+                    header('location:'.$host_address.'KLINIK/assistant/home.php');
                 }
                 elseif ($user_type =='Doctor' && $status == 'Deleted') 
                 {
                     $_SESSION['error'] = "Your Account Has Been Deleted By Admin";
-                    header('location:http://localhost/KLINIK/login.php?login=error');
+                    header('location:'.$host_address.'KLINIK/login.php?login=error');
                 }
                 elseif ($user_type =='Assistant' && $status == 'Deleted') 
                 {
                     $_SESSION['error'] = "Your Account Has Been Deleted By Admin";
-                    header('location:http://localhost/KLINIK/login.php?login=error');
+                    header('location:'.$host_address.'KLINIK/login.php?login=error');
                 }
                 else
                 {
                     $_SESSION['error'] = "Somthing Went Wrong!";
-                    header('location:http://localhost/KLINIK/login.php?login=error');
+                    header('location:'.$host_address.'KLINIK/login.php?login=error');
                 }
             }
             else
             {
                 $_SESSION['error'] = "Email and Password Do Not Match!";
-                header('location:http://localhost/KLINIK/login.php?login=error');
+                header('location:'.$host_address.'KLINIK/login.php?login=error');
             }
 
 
@@ -70,7 +73,7 @@
     else
     {
         $_SESSION['error'] = "Somthing Went Wrong Please Restart the page";
-        header('location:http://localhost/KLINIK/login.php?login=error');
+        header('location:'.$host_address.'KLINIK/login.php?login=error');
     }
 
 ?>
