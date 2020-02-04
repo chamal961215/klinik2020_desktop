@@ -1,12 +1,16 @@
 <?php
 session_start();
+
+$root = dirname($_SERVER['DOCUMENT_ROOT']).'/htdocs/klinik_git/klinik2020_desktop/';
+    require $root . 'host_address.php';
+
 if(empty($_SESSION['id']))
 {
-  header('location:http://localhost/KLINIK/login.php');
+  header('location:'.$host_address.'KLINIK/login.php');
 }elseif ($_SESSION['user_type']=='Doctor') {
-  header('location:http://localhost/KLINIK/doctor/home.php');
+  header('location:'.$host_address.'KLINIK/doctor/home.php');
 }elseif ($_SESSION['user_type']=='Assistant') {
-  header('location:http://localhost/KLINIK/assistant/home.php');
+  header('location:'.$host_address.'KLINIK/assistant/home.php');
 }
 ?>
 <!DOCTYPE html>

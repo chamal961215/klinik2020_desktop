@@ -3,6 +3,8 @@
     
     session_start();
 
+    $root = dirname($_SERVER['DOCUMENT_ROOT']).'/htdocs/klinik_git/klinik2020_desktop/';
+    require $root . 'host_address.php';
     $connection = mysqli_connect("localhost","root","","kdb");
 
     if(isset($_POST['submit-doc-details'])){
@@ -25,13 +27,13 @@
         if(mysqli_num_rows($email_available))
         {
             $_SESSION['error'] = "This email has been alreadey used for someone";
-            header('location:http://localhost/KLINIK/admin/userRegistration.php?doc_fail=error');
+            header('location:'.$host_address.'KLINIK/admin/userRegistration.php?doc_fail=error');
         }
         else
         {
             $query = "INSERT INTO user (name,email,title,nic,address,slmc_no,contact_no,enrollment_key,user_type,user_enroll_status) VALUES ('{$name}' , '{$email}' , '{$title}' , '{$nic}' , '{$address}' , '{$slmc_no}' , '{$contact_no}' , '{$enrollment_key}' , '{$user_type}','{$user_enroll_status}')";
 
-            $link = "http://localhost/KLINIK/confirm_registration.php?enrollment_key=".$enrollment_key."&email=".$email;
+            $link = "$host_address/KLINIK/confirm_registration.php?enrollment_key=".$enrollment_key."&email=".$email;
             $subject = "Registration for KLINIK";
             $body = nl2br("Dear Dr. ".$name.",\n    You are registered as a Doctor for the KLINIK system by the admin. Use this link in below to create your password and to complete your registraion. Your enrollment key is ".$enrollment_key." \n\n".$link."\n\nThank you. \n\n ****Don't reply to this email****");
 
@@ -41,7 +43,7 @@
             mysqli_query($connection,$query);
 
             $_SESSION['success'] = "Registrtion is partially completed";
-            header('location:http://localhost/KLINIK/admin/userRegistration.php?doc=success');
+            header('location:'.$host_address.'KLINIK/admin/userRegistration.php?doc=success');
         }
     }
 
@@ -65,14 +67,14 @@
         if(mysqli_num_rows($email_available))
         {
             $_SESSION['error'] = "This email has been alreadey used for someone";
-            header('location:http://localhost/KLINIK/admin/userRegistration.php?asst_fail=error');
+            header('location:'.$host_address.'KLINIK/admin/userRegistration.php?asst_fail=error');
         }
         else
         {
 
             $query = "INSERT INTO user (name,email,title,nic,address,staff_id,contact_no,enrollment_key,user_type,user_enroll_status) VALUES ('{$name}' , '{$email}' , '{$title}' , '{$nic}' , '{$address}' , '{$staff_id}' , '{$contact_no}' , '{$enrollment_key}' , '{$user_type}','{$user_enroll_status}')";
 
-            $link = "http://localhost/KLINIK/confirm_registration.php?enrollment_key=".$enrollment_key."&email=".$email;
+            $link = "$host_address/KLINIK/confirm_registration.php?enrollment_key=".$enrollment_key."&email=".$email;
             $subject = "Registration for KLINIK";
             $body = nl2br("Dear ".$title." ".$name.",\n    You are registered as an assistant for the KLINIK system by the admin. Use this link in below to create your password and to complete your registraion. Your enrollment key is ".$enrollment_key." \n\n".$link."\n\nThank you. \n\n ****Don't reply to this email****");
 
@@ -82,7 +84,7 @@
 
 
             $_SESSION['success'] = "Registrtion is partially completed";
-            header('location:http://localhost/KLINIK/admin/userRegistration.php?asst=success');
+            header('location:'.$host_address.'KLINIK/admin/userRegistration.php?asst=success');
 
         }
     }    
