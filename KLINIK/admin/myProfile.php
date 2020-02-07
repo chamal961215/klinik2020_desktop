@@ -62,6 +62,12 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+    <a href="editadmininfo.php?id='.$_SESSION['id'].'" type="submit" name ="edit" id="edit" class="btn btn-secondary btn-icon-split" >
+                    <span class="icon text-white-50">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                    <span class="text">Edit Details</span>
+                  </a>
                 </div>
               </div>
 
