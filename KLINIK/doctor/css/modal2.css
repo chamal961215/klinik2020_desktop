@@ -18,10 +18,9 @@
 	position: absolute;
 	z-index: 9999;
 	top: 0;
-	display: flex; 
 	justify-content: center;
 	align-items: center;
-	display: none;
+	display: block;
 }
 
 .modal-content-box{
@@ -137,10 +136,23 @@ div.field{
 .labels{
 	width: 30%;
 }
+
 .bg-modal-dark2 .modal-Dcard .content .tabcontent .tab2Content{
-	display: hidden;
+
+	display: none;
+	display: hidden
+}
+
+.bg-modal-dark2 .modal-Dcard .content .tabcontent .tab3Content{
+
 	display: none;
 }
+
+.bg-modal-dark2 .modal-Dcard .content .tabcontent .tab4Content{
+
+	display: none;
+}
+
 div.option_buttons{
 	float: bottom;
 	float: right;
